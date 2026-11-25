@@ -1,0 +1,16 @@
+.gb-container .wp-block-image img {
+  vertical-align: middle;
+}
+.gb-grid-wrapper .wp-block-image {
+  margin-bottom: 0;
+}
+.gb-highlight {
+  background: none;
+}
+.gb-shape {
+  line-height: 0;
+}
+:root {
+  --gb-container-width: 1200px;
+}
+/*# sourceURL=generateblocks-inline-css */

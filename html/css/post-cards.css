@@ -1,0 +1,58 @@
+.custom-post-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+.custom-post-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.post-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.post-info {
+  padding: 16px;
+}
+.post-info h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+.post-info p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.post-author-meta {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.post-author-meta .author-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+.post-author-meta .dot-separator {
+  margin: 0 6px;
+}
+.read-more-btn {
+  display: inline-block;
+  font-size: 14px;
+  color: #0073aa;
+}
+
+/* Bản tĩnh: đã bỏ thẻ "Báo chí đưa tin", căn giữa để lưới không bị hở khi còn ít thẻ */
+.custom-post-grid-wrapper {
+  justify-content: center;
+  column-gap: 20px;
+}

@@ -1,0 +1,14 @@
+form.fluent_form_4 .ff-btn-submit:not(.ff_btn_no_style) {
+  background-color: var(--fluentform-primary);
+  color: #ffffff;
+}
+
+form.fluent_form_3 .ff-btn-submit:not(.ff_btn_no_style) {
+  background-color: var(--fluentform-primary);
+  color: #ffffff;
+}
+
+form.fluent_form_5 .ff-btn-submit:not(.ff_btn_no_style) {
+  background-color: var(--fluentform-primary);
+  color: #ffffff;
+}

@@ -1,0 +1,37 @@
+.tvl-embassy-disclaimer {
+  margin: 20px 0 24px;
+  padding: 16px 18px;
+  border: 2px solid #d93025;
+  border-radius: 10px;
+  background: #fff5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.tvl-embassy-disclaimer__title {
+  margin: 0 0 8px;
+  color: #b71c1c;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.tvl-embassy-disclaimer__text {
+  color: #222;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.tvl-embassy-disclaimer__text strong {
+  color: #9f1111;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .tvl-embassy-disclaimer {
+    padding: 14px 15px;
+    margin: 16px 0 20px;
+  }
+  .tvl-embassy-disclaimer__title {
+    font-size: 18px;
+  }
+  .tvl-embassy-disclaimer__text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}

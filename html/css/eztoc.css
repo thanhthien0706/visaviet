@@ -1,0 +1,101 @@
+div#ez-toc-container .ez-toc-title,
+.ez-toc-split-section .ez-toc-title {
+  font-size: 120%;
+}
+div#ez-toc-container .ez-toc-title,
+.ez-toc-split-section .ez-toc-title {
+  font-weight: 400;
+}
+div#ez-toc-container ul li,
+div#ez-toc-container ul li a,
+.ez-toc-split-section ul li,
+.ez-toc-split-section ul li a {
+  font-size: 95%;
+}
+div#ez-toc-container ul li,
+div#ez-toc-container ul li a,
+.ez-toc-split-section ul li,
+.ez-toc-split-section ul li a {
+  font-weight: 400;
+}
+div#ez-toc-container nav ul ul li,
+.ez-toc-split-section nav ul ul li {
+  font-size: 90%;
+}
+div#ez-toc-container,
+.ez-toc-split-section {
+  background: #e9f9ff;
+  border: 1px solid #e9f9ff;
+  width: 100%;
+}
+div#ez-toc-container p.ez-toc-title,
+#ez-toc-container .ez_toc_custom_title_icon,
+#ez-toc-container .ez_toc_custom_toc_icon,
+.ez-toc-split-section p.ez-toc-title,
+.ez-toc-split-section .ez_toc_custom_title_icon,
+.ez-toc-split-section .ez_toc_custom_toc_icon {
+  color: #333333;
+}
+div#ez-toc-container ul.ez-toc-list a,
+.ez-toc-split-section ul.ez-toc-list a {
+  color: #288ad6;
+}
+div#ez-toc-container ul.ez-toc-list a:hover,
+.ez-toc-split-section ul.ez-toc-list a:hover {
+  color: #1b576a;
+}
+div#ez-toc-container ul.ez-toc-list a:visited,
+.ez-toc-split-section ul.ez-toc-list a:visited {
+  color: #1b576a;
+}
+.ez-toc-counter nav ul li a::before {
+  color:;
+}
+.ez-toc-box-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  padding-bottom: 5px;
+  position: absolute;
+  top: -4%;
+  left: 5%;
+  background-color: inherit;
+  transition: top 0.3s ease;
+}
+.ez-toc-box-title.toc-closed {
+  top: -25%;
+}
+.ez-toc-container-direction {
+  direction: ltr;
+}
+.ez-toc-counter ul {
+  counter-reset: item;
+}
+.ez-toc-counter nav ul li a::before {
+  content: counters(item, ".", decimal) ". ";
+  display: inline-block;
+  counter-increment: item;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 0.2em;
+  float: left;
+}
+.ez-toc-widget-direction {
+  direction: ltr;
+}
+.ez-toc-widget-container ul {
+  counter-reset: item;
+}
+.ez-toc-widget-container nav ul li a::before {
+  content: counters(item, ".", decimal) ". ";
+  display: inline-block;
+  counter-increment: item;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 0.2em;
+  float: left;
+}
+/*# sourceURL=eztoc-inline-css */
