@@ -1,0 +1,398 @@
+/*
+ * Website chỉ dùng HTML + CSS (không JavaScript).
+ * File này thay thế các tương tác trước đây do script đảm nhận.
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Checkbox ẩn dùng để bật / tắt */
+input[type="checkbox"].css-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label.menu-toggle,
+label.sub-toggle-btn,
+label.close-btn,
+label.modal-close,
+label.modal-backdrop,
+label.ff_modal_btn,
+#tim-duong label {
+  cursor: pointer;
+}
+
+/* ---------- Menu điện thoại ---------- */
+label.sub-toggle-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body:has(#nav-toggle:checked) #site-navigation .main-nav {
+    display: block;
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation .main-nav > ul {
+    display: block;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation .main-nav li {
+    position: relative;
+    width: 100%;
+    text-align: left;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation .main-nav ul ul.sub-menu {
+    display: none;
+    position: static;
+    width: 100%;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation .main-nav li > .sub-toggle:checked ~ ul.sub-menu {
+    display: block;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+    visibility: visible;
+    pointer-events: auto;
+    float: none;
+    left: auto;
+    top: auto;
+    box-shadow: none;
+  }
+
+  /* vùng bấm nằm đè lên mũi tên của mục cha */
+  body:has(#nav-toggle:checked) #site-navigation label.sub-toggle-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 50px;
+    z-index: 5;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation li > a .dropdown-menu-toggle {
+    float: right;
+  }
+
+  body:has(#nav-toggle:checked) #site-navigation li:has(> .sub-toggle:checked) > a .dropdown-menu-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  /* logo giữ nguyên vị trí khi menu mở */
+  body:has(#nav-toggle:checked) .site-header .site-logo {
+    top: 16px;
+  }
+
+  body:has(#nav-toggle:checked) .icon-menu-bars svg:nth-child(1) {
+    display: none;
+  }
+
+  body:has(#nav-toggle:checked) .icon-menu-bars svg:nth-child(2) {
+    display: block;
+  }
+}
+
+/* ---------- Popup "Tìm đường" ---------- */
+.popup-toggle:checked + .popup-overlay.popup-overlay {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#tim-duong label {
+  display: block;
+}
+
+/* ---------- Popup form "Đánh giá tỷ lệ đậu" ---------- */
+.ff_form_modal_body {
+  display: none;
+}
+
+.modal-toggle:checked ~ .ff_form_modal_body {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-panel {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 36px 12px 12px;
+  overflow-x: hidden;
+  white-space: normal;
+  text-align: left;
+}
+
+.modal-panel * {
+  max-width: 100%;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.modal-panel fieldset {
+  min-width: 0 !important;
+}
+
+.modal-panel .ff_modal_container {
+  width: 100% !important;
+  margin: 0;
+  padding: 0 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 4px;
+  right: 14px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+label.ff_modal_btn {
+  display: inline-block;
+}
+
+/* ---------- Video ---------- */
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Trượt ngang bằng CSS: đánh giá khách hàng ---------- */
+/*
+ * CSS gốc của widget đặt "gap: unset !important" cho mọi phần tử bên trong,
+ * nên selector ở đây phải cụ thể hơn và dùng !important.
+ */
+.ti-widget.ti-goog .ti-widget-container .ti-reviews-container-wrapper {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 20px !important;
+  margin: 0 8px !important;
+  padding: 4px 0 16px;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #c7ccd6 transparent;
+}
+
+/*
+ * Số thẻ tính theo độ rộng của chính khối đánh giá (không theo màn hình),
+ * vì ở trang con khối này nằm trong cột bên hẹp.
+ * Hẹp: 1 thẻ, từ 600px: 2 thẻ, từ 900px: 3 thẻ.
+ */
+.ti-widget.ti-goog .ti-widget-container .ti-reviews-container {
+  container-type: inline-size;
+  padding-bottom: 20px;
+}
+
+.ti-widget.ti-goog .ti-widget-container .ti-review-item {
+  flex: 0 0 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  scroll-snap-align: start;
+}
+
+@container (min-width: 600px) {
+  .ti-widget.ti-goog .ti-widget-container .ti-review-item {
+    flex-basis: calc((100% - 20px) / 2) !important;
+  }
+}
+
+@container (min-width: 900px) {
+  .ti-widget.ti-goog .ti-widget-container .ti-review-item {
+    flex-basis: calc((100% - 40px) / 3) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ti-widget.ti-goog .ti-widget-container .ti-reviews-container-wrapper {
+    gap: 12px !important;
+  }
+
+  /* chừa một phần thẻ kế tiếp để biết là vuốt được */
+  .ti-widget.ti-goog .ti-widget-container .ti-review-item {
+    flex-basis: 88% !important;
+  }
+}
+
+/* các thẻ cao bằng nhau và nền luôn bao hết nội dung */
+.ti-widget.ti-goog .ti-widget-container .ti-review-item {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.ti-widget.ti-goog .ti-widget-container .ti-review-item > .ti-inner {
+  flex: 1 0 auto;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+/* bình luận dài: cao tối đa 6 dòng, phần còn lại cuộn trong thẻ */
+.ti-widget.ti-goog .ti-widget-container .ti-review-text-container.ti-review-content {
+  display: block !important;
+  height: auto !important;
+  max-height: 132px;
+  overflow-y: auto !important;
+  -webkit-line-clamp: unset !important;
+  line-height: 22px !important;
+  scrollbar-width: thin;
+  scrollbar-color: #c7ccd6 transparent;
+}
+
+/* thanh chỉ vị trí của slider cũ không di chuyển được nếu không có script */
+.ti-widget.ti-goog .ti-widget-container .ti-controls-line {
+  display: none !important;
+}
+
+/* ---------- Chuyển ngôn ngữ: theo đúng giao diện của trang gốc ---------- */
+/* Kiểu 1: một lá cờ */
+.smart-lang-btn img {
+  width: 18px;
+  height: 12px;
+  vertical-align: middle;
+}
+
+/* Kiểu 2: nút "cờ + tên ngôn ngữ ▼" mở hộp chọn giữa màn hình */
+.gtranslate_wrapper label.glink,
+.gtranslate_wrapper label.gt_black_overlay {
+  cursor: pointer;
+}
+
+.gtranslate_wrapper .glink {
+  color: #fcb900;
+  text-decoration: none;
+}
+
+.gtranslate_wrapper .glink.gt-current-lang {
+  font-weight: bold;
+}
+
+.gtranslate_wrapper .glink img {
+  vertical-align: middle;
+  display: inline;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0.8;
+  height: auto;
+}
+
+.gtranslate_wrapper .glink:hover img {
+  opacity: 1;
+}
+
+.gtranslate_wrapper .glink span {
+  margin-right: 5px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.gtranslate_wrapper .glink span.gt-arrow {
+  color: #666;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.gtranslate_wrapper .gt_black_overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.8;
+  z-index: 10000;
+}
+
+.gtranslate_wrapper .gt_white_content {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 181px;
+  height: 308px;
+  margin: -154px 0 0 -90.5px;
+  padding: 6px 16px;
+  background-color: #fff;
+  color: #000;
+  z-index: 19881205;
+  overflow: auto;
+  text-align: left;
+}
+
+.gtranslate_wrapper .gt_white_content .glink {
+  display: block;
+  padding: 6px 0;
+  border-bottom: 1px solid #e7e7e7;
+  white-space: nowrap;
+  line-height: 0;
+  flex-basis: 37px;
+  box-sizing: border-box;
+}
+
+.gtranslate_wrapper .gt_languages {
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 308px;
+  overflow-x: hidden;
+}
+
+/* theme gốc chỉ định kiểu điện thoại cho thẻ <a>; ngôn ngữ đang chọn là <label> nên lặp lại */
+@media (max-width: 768px) {
+  .gtranslate_wrapper .gt_languages label.glink {
+    padding: 0 !important;
+    color: black !important;
+  }
+}
+
+/* khi hộp chọn mở, thanh trên cùng phải nằm trên ảnh bài viết */
+.top-bar:has(.gt-toggle:checked) {
+  position: relative;
+  z-index: 100000;
+}
+
+.gtranslate_wrapper .gt-toggle:checked ~ .gt_black_overlay,
+.gtranslate_wrapper .gt-toggle:checked ~ .gt_white_content {
+  display: block;
+}
+
+.review-translation-note {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+}

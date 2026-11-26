@@ -1,1 +1,0 @@
-var generatepressBackToTop = { smooth: "1" };
